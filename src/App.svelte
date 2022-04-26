@@ -4,12 +4,17 @@
 	import Controls from './Controls.svelte';
 	import Dashboard from './Dashboard.svelte';
 	import Apps from './Apps.svelte';
+	import { theme$ } from './store';
 	
-	let themeVal = 'dark';
-	
-	function handleClick()  {
+	let themeVal;
+
+	theme$.subscribe((theme) => {
+		themeVal = theme;
+	});
+
+	const handleClick = () => {
 		const html = document.getElementById('bloomberg');
-		themeVal = themeVal === 'dark' ? 'light': 'dark';
+		theme$.set(themeVal === 'dark' ? 'light' : 'dark');
 		html.setAttribute('data-theme', themeVal);
 	}
 </script>
@@ -17,12 +22,12 @@
 <button class="themeButton" on:click={handleClick}>{`${themeVal} Theme`}</button>
 <main>
 	<div class="grid">
-		<div>
+		<div class="panel">
 			<Branding />
 			<Controls />
 			<Booking />
 		</div>
-		<div>
+		<div class="panel" >
 			<Dashboard />
 			<Apps />
 		</div>
@@ -34,18 +39,21 @@
 		text-align: center;
 		padding: 1em;
 		max-width: 240px;
-		margin-top: 3rem;
 	}
 
 	.themeButton {
 		position: absolute;
-		right: 1rem;
+		right: 1.5rem;
 		top: 1rem;
 		width: 8rem;
 	}
 
 	.themeButton::first-letter{
 		text-transform: capitalize;
+	}
+
+	.panel {
+		height: 30rem;
 	}
 
 	@media (min-width: 640px) {
