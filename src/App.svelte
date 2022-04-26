@@ -4,10 +4,10 @@
 	import Controls from './Controls.svelte';
 	import Dashboard from './Dashboard.svelte';
 	import Apps from './Apps.svelte';
-	import { theme$ } from './store';
+	import {theme$} from './store';
 	
 	let themeVal;
-
+	
 	theme$.subscribe((theme) => {
 		themeVal = theme;
 	});
@@ -19,8 +19,8 @@
 	}
 </script>
 
-<button class="themeButton" on:click={handleClick}>{`${themeVal} Theme`}</button>
 <main>
+<button class="themeButton" on:click={handleClick}>{`${themeVal} Theme`}</button>
 	<div class="grid">
 		<div class="panel">
 			<Branding />
@@ -37,23 +37,19 @@
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
+		padding: 2em;
 		max-width: 240px;
 	}
 
 	.themeButton {
 		position: absolute;
-		right: 1.5rem;
+		right: 2.5rem;
 		top: 1rem;
 		width: 8rem;
 	}
 
 	.themeButton::first-letter{
 		text-transform: capitalize;
-	}
-
-	.panel {
-		height: 30rem;
 	}
 
 	@media (min-width: 640px) {

@@ -16,7 +16,7 @@
 
 <style>
   .branding {
-    height: 8rem;
+    height: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +24,7 @@
 
   .branding p {
     font-size: 3rem;
+    margin: 0 !important
   }
 
 </style>

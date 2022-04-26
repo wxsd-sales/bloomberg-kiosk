@@ -4,6 +4,6 @@
 
 <style>
   .booking {
-    height: 11.5rem;
+    height: 13rem;
   }
 </style>
