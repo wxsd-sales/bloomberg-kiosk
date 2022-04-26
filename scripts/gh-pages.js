@@ -1,5 +1,6 @@
 var ghpages = require('gh-pages');
 
+console.log('Dont forget to build and commit first!');
 ghpages.publish(
     'public', // path to public directory
     {
